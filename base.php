@@ -3,7 +3,7 @@
 session_start();
 
 $dbuser = 'olus2000';
-$dbpass = file_get_contents("../dbpass.txt");
+$dbpass = trim(file_get_contents("../dbpass.txt"), "\n\r\0\x0B");
 $dbname = 'olus2000';
 $dbhost = 'mysql:host=mysql.staszic.waw.pl; dbname='.$dbname;
 
