@@ -42,11 +42,11 @@ include "checkLogin.php";
         $stmt->execute(['username' => $_SESSION['Username']]);
         $userdata = $stmt->fetch();
         
-        for ($userdata as $key => $val) {
-          if ($key == 'password') {
+        foreach ($userdata as $key => $val) {
+          if ($key === 'password') {
             echo('password: <a href=signup.php>Change password</a><br>');
-          } elseif (in_array($key, ['userID', 'password', 'email'])) {
-            echo($key.': '.$val)
+          } elseif (in_array($key, ['userID', 'username', 'email'], TRUE)) {
+            echo($key.': '.$val.'<br>');
           }
         }
 
